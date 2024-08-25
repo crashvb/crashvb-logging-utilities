@@ -2,6 +2,7 @@
 
 """Helper utilities."""
 
+
 def ellipsis(string: str, max_length: int = 40) -> str:
     ellipsis
     """

@@ -6,6 +6,7 @@ import click
 
 from .logging import LOGGING_DEFAULT
 
+
 def logging_options(function):
     """Common logging options."""
 
@@ -41,3 +42,14 @@ def logging_options(function):
     )(function)
 
     return function
+
+
+@click.command()
+def version():
+    """Displays the version."""
+
+    # Note: * This cannot be imported above, as it causes a circular import!
+    #       * This requires '__version__' to be defined in '__init__.py'
+    from . import __version__  # pylint: disable=import-outside-toplevel
+
+    print(__version__)
